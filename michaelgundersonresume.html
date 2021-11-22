@@ -13,7 +13,7 @@
             <p onclick="nextpage()" class="option indent">Next</p>
         </div>
     </div>
-    <div id="tiles">
+    <div id="tiles" style="pointer-events:none;">
         <svg viewBox="40 35 215 480">
             <defs>
                 <g id="loading" transform-origin="142px 148px">
@@ -29,10 +29,7 @@
         </svg>
     </div>
     <style>
-        /*-------
-        | Color |
-        -------*/
-        :root {/*Most of my work is in google chrome only (bluetooth stuff)*/
+        :root {
             --color1:#FFAA00;
             --color2:#FF0000;
             --color3:#888888;
@@ -41,7 +38,7 @@
             --color6:#4488FF;
             --color7:#3377FF;
         }
-        body.checkerboard {/*I like to be able to set theme colors and patterns*/
+        body.checkerboard {
             --background:linear-gradient(45deg,var(--color1) 26%, transparent 25%),linear-gradient(-45deg,var(--color1) 26%,transparent 25%),linear-gradient(45deg,transparent 75%, var(--color1) 75%),linear-gradient(-45deg,transparent 75%, var(--color1) 75%),linear-gradient(0deg,var(--color2),var(--color2));
             --background2:linear-gradient(45deg,var(--color3) 26%, transparent 25%),linear-gradient(-45deg,var(--color3) 26%,transparent 25%),linear-gradient(45deg,transparent 75%,var(--color3) 75%),linear-gradient(-45deg,transparent 75%,var(--color3) 75%),linear-gradient(0deg,var(--color4),var(--color4));
             --background-size:10vmin 10vmin;
@@ -51,9 +48,6 @@
         @keyframes colorfade {0%{color:#4488FF;} 50%{color:#3377FF;} 100%{color:#4488FF;}}
         .fade {animation:colorfade 2s infinite;-moz-animation:colorfade 2s infinite;-o-animation:colorfade 2s infinite;-ms-animation:colorfade 2s infinite;-webkit-animation:colorfade 2s infinite;}
         body {overflow-x:hidden;}
-        /*------
-        | Text |
-        ------*/
         .scroll {position:absolute;left:0;width:calc(100% + 19px);top:0;height:100vh;overflow-y:scroll;}
         #textcontent {left:0;width:100%;}
         .menutitle {margin-left:5vw;margin-right:5vw;font-family:Arial;font-size:8vw;font-weight:700;margin-top:2vw;margin-bottom:2.5vw;text-align:center;margin-bottom:0.5vw;}
@@ -63,10 +57,6 @@
         .option:active {opacity:0.8;}
         .hackerman {margin-left:20vw;width:60vw;margin-top:calc(50vh - 28vw);}
         .hackerman path {fill:#888888;opacity:0.4;}
-
-        /*-------
-        | Tiles |
-        -------*/
         #tiles {opacity:0;position:absolute;left:0%;top:0%;width:100%;height:100vh;overflow:hidden;pointer-events:none;overflow:hidden;}
         #tiles > svg {object-fit:cover;}
         #tiles.slowcycling {animation:blink 1s forwards;-webkit-animation:blink 1s forwards;-moz-animation:blink 1s forwards;-ms-animation:blink 1s forwards;-o-animation:blink 1s forwards;}
@@ -121,16 +111,17 @@
             '<p class="list">Please use <fade>Google Chrome</fade> for a fuller-experience.</p>'+
             '<p onclick="nextpage()" class="option indent">Next</p>',
             
-            '<p class="menutitle">Webpage Competencies</p>'+
+            '<p class="menutitle">Computer Skills</p>'+
             '<p class="list">JS/HTML/CSS/NodeJS</p>'+
-            '<p class="list">I'm really good with Excel VBA</p>'+
+            '<p class="list">Excel VBA</p>'+
             '<p class="list">AngularJS/Java</p>'+
             '<p onclick="nextpage()" class="option indent">Next</p>',
             
             '<p class="menutitle">Professional Projects (part of team)</p>'+
             '<p class="list">Care Right Tech: debugging Java-backend and AngularJS-frontend</p>'+
             '<p class="list">Title II And XVI Entrypoint: set up much of the front-end, and API/backend (AWS)</p>'+
-            '<p class="list">Wrote Animations for Unchained Ag, an Educational App, and various smaller apps</p>',
+            '<p class="list">Wrote Animations for Unchained Ag, an Educational App, and various smaller apps</p>'+
+            '<p onclick="nextpage()" class="option indent">Next</p>',
             
             '<p class="menutitle">Side Projects</p>'+
             '<p class="list">An Excel-VBA mod that generates webpages. (I use it to make SVG animations for my apps)</p>'+
@@ -173,15 +164,6 @@
                 var tiles=document.getElementById('tiles');
                 if(tiles) {tiles.classList="";}
             },1000);
-        }
-        function midstep() {//sets html content at halfway point in animation.
-            var textcontent=document.getElementById('textcontent');
-            if(textcontent) {textcontent.innerHTML=pages[currentpage];}
-        }
-        function endstep() {//resets animation.
-            active=false;
-            var tiles=document.getElementById('tiles');
-            if(tiles) {tiles.classList="salamanders";}
         }
     </script>
 </body>
