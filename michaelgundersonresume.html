@@ -8,16 +8,21 @@
     <div class="scroll">
         <div id="textcontent">
             <p class="menutitle">Michael Gunderson</p>
-            <p class="list">Front-End (+API) Developer</p>
-            <p class="list">Please use <fade>Google Chrome</fade> for a fuller-experience.</p>
+            <p class="list">Front-End Developer</p>
+            <p class="list">Please use <fade class="fade">Google Chrome</fade> for a fuller-experience.</p>
             <p onclick="nextpage()" class="option indent">Next</p>
         </div>
     </div>
-    <div id="tiles" class="">
+    <div id="tiles">
         <svg viewBox="40 35 215 480">
             <defs>
-                <g id="loading">
-                    <path/><path/><path/><path/><path/><path/>
+                <g id="loading" transform-origin="142px 148px">
+                    <path transform-origin="72px 148px" stroke="black" fill="#EF6D25" d="M3 148C20 144 19 144 37 123C27 111 26 111 22 97C42 59 42 58 73 27C104 58 103 58 123 97C120 111 119 112 109 123C127 144 127 144 143 148C148 163 148 164 138 189C123 186 123 186 109 189C85 226 84 226 73 268C62 225 62 226 37 189C23 186 23 186 8 189C-1 163 -2 164 3 148Z"/>
+                    <path transform-origin="175px 87px" stroke="black" fill="#7F7F7F" d="M212 27C207 43 207 42 217 69C232 65 233 65 247 69C270 105 271 105 282 148C240 159 240 158 196 156C186 146 186 145 181 130C154 135 154 136 143 148C127 144 127 144 109 123C120 111 120 112 124 97C104 58 104 58 73 27C116 38 116 39 160 36C170 25 170 25 174 10C201 15 201 15 212 27Z"/>
+                    <path transform-origin="180px 208px" stroke="black" fill="#FFFFFF" d="M212 269C201 256 201 257 173 252C169 267 168 267 159 278C115 280 115 280 72 269C84 226 84 227 108 190C122 186 123 186 138 190C147 164 147 164 142 148C153 136 153 136 180 132C185 146 185 146 195 157C239 159 239 159 281 148C250 180 250 179 230 219C235 233 235 233 245 244C228 265 228 265 212 269Z"/>
+                    <path transform-origin="72px 148px" d="M143 168C121 163 115 161 108 150C109 159 107 164 106 172C115 167 118 166 143 168ZM3 168C25 163 31 161 38 150C37 159 39 164 40 172C31 167 28 166 3 168ZM45 86C48 79 41 72 56 61C72 51 43 93 45 86ZM99 86C96 79 103 72 88 61C73 51 101 93 99 86ZM72 265C69 199 70 146 69 87L74 87C74 146 75 199 72 265Z"/>
+                    <path transform-origin="175px 87px" d="M125 138C140 121 145 117 158 117C150 113 146 108 140 104C140 114 139 117 125 138ZM195 16C188 38 187 45 193 56C186 51 180 50 173 47C182 41 184 39 195 16ZM245 94C250 100 259 98 261 116C263 135 240 89 245 94ZM218 140C226 142 228 151 245 143C262 136 211 139 218 140ZM76 28C135 58 180 86 232 115L230 119C179 89 132 63 76 28Z"/>
+                    <path transform-origin="180px 208px" d="M159 137C166 159 167 166 161 177C169 172 174 171 181 168C172 162 170 160 159 137ZM230 259C214 242 209 238 196 238C205 234 208 229 214 225C215 235 216 238 230 259ZM137 263C130 264 127 274 110 266C93 258 145 262 137 263ZM110 217C106 223 96 221 94 239C93 257 115 211 110 217ZM278 150C224 186 177 211 126 242L123 238C175 209 221 181 278 150Z"/>
                 </g>
             </defs>
             <use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/><use href="#loading"/>
@@ -27,7 +32,7 @@
         /*-------
         | Color |
         -------*/
-        :root {
+        :root {/*Most of my work is in google chrome only (bluetooth stuff)*/
             --color1:#FFAA00;
             --color2:#FF0000;
             --color3:#888888;
@@ -42,9 +47,9 @@
             --background-size:10vmin 10vmin;
             --background-position:0 0,0 5vmin,5vmin -5vmin,-5vmin 0;
         }
-        #background {background:linear-gradient(180deg,var(--color1),var(--color2));height:100vh;left:0;top:0;width:100%;height:100vh;position:absolute;overflow:hidden;}
-        @keyframes colorfade {0%{color:var(--color6)} 50%{color:var(--color7)} 100%{color:var(--color6)}}
-        fade {animation:colorfade 2s infinite;}
+        #background {background:linear-gradient(180deg,#FFAA00,#FF0000);height:100vh;left:0;top:0;width:100%;height:100vh;position:absolute;overflow:hidden;}
+        @keyframes colorfade {0%{color:#4488FF;} 50%{color:#3377FF;} 100%{color:#4488FF;}}
+        .fade {animation:colorfade 2s infinite;-moz-animation:colorfade 2s infinite;-o-animation:colorfade 2s infinite;-ms-animation:colorfade 2s infinite;-webkit-animation:colorfade 2s infinite;}
         body {overflow-x:hidden;}
         /*------
         | Text |
@@ -53,24 +58,37 @@
         #textcontent {left:0;width:100%;}
         .menutitle {margin-left:5vw;margin-right:5vw;font-family:Arial;font-size:8vw;font-weight:700;margin-top:2vw;margin-bottom:2.5vw;text-align:center;margin-bottom:0.5vw;}
         .list {margin-left:5vw;margin-right:5vw;font-family:Arial;font-size:3vw;margin-bottom:1vw;margin-top:1vw;}
-        .option {transition-duration:500ms;transition-property:text-indent;cursor:pointer;text-overflow:clip;white-space:nowrap;overflow:hidden;font-family:Arial;font-size:6vw;margin-top:2.5vw;margin-bottom:2.5vw;border-radius:10vw;margin-left:5vw;width:25vw;text-indent:3vw;background:var(--background2);background-position:var(--background-position);background-size:var(--background-size);color:var(--color5);}
+        .option {transition-duration:500ms;transition-property:text-indent;cursor:pointer;text-overflow:clip;white-space:nowrap;overflow:hidden;font-family:Arial;font-size:6vw;margin-top:2.5vw;margin-bottom:2.5vw;border-radius:10vw;margin-left:5vw;width:25vw;text-indent:3vw;background:linear-gradient(45deg,#888888 26%, transparent 25%),linear-gradient(-45deg,#888888 26%,transparent 25%),linear-gradient(45deg,transparent 75%,#888888 75%),linear-gradient(-45deg,transparent 75%,#888888 75%),linear-gradient(0deg,#AAAAAA,#AAAAAA),linear-gradient(180deg,#FF0000,#FFAA00);background-position:0 0,0 5vmin,5vmin -5vmin,-5vmin 0;background-size:10vmin 10vmin;color:#FFBB00;}
         .option:hover {text-indent:6vw;}
         .option:active {opacity:0.8;}
         .hackerman {margin-left:20vw;width:60vw;margin-top:calc(50vh - 28vw);}
-        .hackerman path {fill:var(--color3);opacity:0.4;}
+        .hackerman path {fill:#888888;opacity:0.4;}
 
         /*-------
         | Tiles |
         -------*/
-        #tiles {position:absolute;left:0%;top:0%;width:100%;height:100vh;overflow:hidden;pointer-events:none;overflow:hidden;}
+        #tiles {opacity:0;position:absolute;left:0%;top:0%;width:100%;height:100vh;overflow:hidden;pointer-events:none;overflow:hidden;}
         #tiles > svg {object-fit:cover;}
-        #tiles.slowcycling > svg {animation:whitecycling 1s forwards;}
-        #tiles.slowcycling > svg > defs > g#loading {animation:tilescycling 1s forwards;}
-        #tiles.slowcycling > svg > defs > g#loading > path {animation:tilecycling 1s forwards;}
-        @keyframes tilescycling {0% {transform:rotate(120deg);} 50% {transform:rotate(360deg);} 100% {transform:rotate(600deg);}}
-        @keyframes tilecycling {0% {transform:scale(0.1);opacity:0.0;stroke-width:0px;} 50% {transform:scale(1.0);opacity:1.0;stroke-width:2px;} 100% {transform:scale(0.1);opacity:0.0;stroke-width:0px;}}
+        #tiles.slowcycling {animation:blink 1s forwards;-webkit-animation:blink 1s forwards;-moz-animation:blink 1s forwards;-ms-animation:blink 1s forwards;-o-animation:blink 1s forwards;}
+        #tiles.slowcycling > svg {animation:whitecycling 1s forwards;-webkit-animation:whitecycling 1s forwards;-moz-animation:whitecycling 1s forwards;-ms-animation:whitecycling 1s forwards;-o-animation:whitecycling 1s forwards;}
+        #tiles.slowcycling > svg > defs > g#loading {animation:tilescycling 1s forwards;-moz-animation:tilescycling 1s forwards;-ms-animation:tilescycling 1s forwards;-o-animation:tilescycling 1s forwards;}
+        #tiles.slowcycling > svg > defs > g#loading > path {animation:tilecycling 1s forwards;-moz-animation:tilecycling 1s forwards;-ms-animation:tilecycling 1s forwards;-o-animation:tilecycling 1s forwards;}
+        @keyframes blink {
+            0% {opacity:0;}
+            50% {opacity:1;}
+            100% {opacity:0;}
+        }
+        @keyframes tilescycling {
+            0% {opacity:0;transform:rotate(120deg);-webkit-transform:rotate(120deg);-moz-transform:rotate(120deg);-ms-transform:rotate(120deg);-o-transform:rotate(120deg);}
+            50% {opacity:1;transform:rotate(360deg);-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-o-transform:rotate(360deg);}
+            100% {opacity:0;transform:rotate(600deg);-webkit-transform:rotate(600deg);-moz-transform:rotate(600deg);-ms-transform:rotate(600deg);-o-transform:rotate(600deg);}
+        }
+        @keyframes tilecycling {
+            0% {transform:scale(0.1);stroke-width:0px;-webkit-transform:scale(0.1);-moz-transform:scale(0.1);-ms-transform:scale(0.1);-o-transform:scale(0.1);}
+            50% {transform:scale(1.0);stroke-width:2px;-webkit-transform:scale(1.0);-moz-transform:scale(1.0);-ms-transform:scale(1.0);-o-transform:scale(1.0);}
+            100% {transform:scale(0.1);stroke-width:0px;-webkit-transform:scale(0.1);-moz-transform:scale(0.1);-ms-transform:scale(0.1);-o-transform:scale(0.1);}
+        }
         @keyframes whitecycling {0% {background-color:#FFF0;} 50% {background-color:#FFFFFFFF;} 100% {background-color:#FFFFFF00;}}
-
         .salamanders > svg > defs > g#loading > path:nth-child(n+4):nth-child(-n+6) {fill:#000000;}
         .salamanders > svg > defs > g#loading > path:nth-child(-n+3) {stroke:#000000;}
         .salamanders > svg > defs > g#loading > path:nth-child(1) {fill:#EF6D25;transform-origin:72px 148px;d:path("M3 148C20 144 19 144 37 123C27 111 26 111 22 97C42 59 42 58 73 27C104 58 103 58 123 97C120 111 119 112 109 123C127 144 127 144 143 148C148 163 148 164 138 189C123 186 123 186 109 189C85 226 84 226 73 268C62 225 62 226 37 189C23 186 23 186 8 189C-1 163 -2 164 3 148Z");}
@@ -79,7 +97,7 @@
         .salamanders > svg > defs > g#loading > path:nth-child(4) {transform-origin:72px 148px;d:path("M143 168C121 163 115 161 108 150C109 159 107 164 106 172C115 167 118 166 143 168ZM3 168C25 163 31 161 38 150C37 159 39 164 40 172C31 167 28 166 3 168ZM45 86C48 79 41 72 56 61C72 51 43 93 45 86ZM99 86C96 79 103 72 88 61C73 51 101 93 99 86ZM72 265C69 199 70 146 69 87L74 87C74 146 75 199 72 265Z");}
         .salamanders > svg > defs > g#loading > path:nth-child(5) {transform-origin:175px 87px;d:path("M125 138C140 121 145 117 158 117C150 113 146 108 140 104C140 114 139 117 125 138ZM195 16C188 38 187 45 193 56C186 51 180 50 173 47C182 41 184 39 195 16ZM245 94C250 100 259 98 261 116C263 135 240 89 245 94ZM218 140C226 142 228 151 245 143C262 136 211 139 218 140ZM76 28C135 58 180 86 232 115L230 119C179 89 132 63 76 28Z");}
         .salamanders > svg > defs > g#loading > path:nth-child(6) {transform-origin:180px 208px;d:path("M159 137C166 159 167 166 161 177C169 172 174 171 181 168C172 162 170 160 159 137ZM230 259C214 242 209 238 196 238C205 234 208 229 214 225C215 235 216 238 230 259ZM137 263C130 264 127 274 110 266C93 258 145 262 137 263ZM110 217C106 223 96 221 94 239C93 257 115 211 110 217ZM278 150C224 186 177 211 126 242L123 238C175 209 221 181 278 150Z");}
-        .salamanders > svg > use {transform:scale(0.5);}
+        .salamanders > svg > use {transform:scale(0.5);-moz-transform:scale(0.5);-o-transform:scale(0.5);-ms-transform:scale(0.5);-webkit-transform:scale(0.5);}
         .salamanders > svg > defs > g#loading {transform-origin:142px 148px;}
         .salamanders > svg > use:nth-child(2) {x:-66px;y:28px;}
         .salamanders > svg > use:nth-child(3) {x:142px;y:-92px;}
@@ -99,40 +117,40 @@
     <script>
         const pages=[
             '<p class="menutitle">Michael Gunderson</p>'+
-            '<p class="list">Front-End (+API) Developer</p>'+
+            '<p class="list">Front-End Developer</p>'+
             '<p class="list">Please use <fade>Google Chrome</fade> for a fuller-experience.</p>'+
             '<p onclick="nextpage()" class="option indent">Next</p>',
-
-            '<p class="menutitle">Computer Skills</p>'+
-            '<p class="list">JS/HTML/CSS</p>'+
-            '<p class="list">NodeJS/REST/HTTP</p>'+
-            '<p class="list">Java/Python/Kotlin</p>'+
-            '<p class="list">AngularJS+6/Cordova</p>'+
-            '<p class="list">Excel VBA/Elixir/x86</p>'+
-            '<p class="list">Linear Algebra/Discrete Math</p>'+
+            
+            '<p class="menutitle">Webpage Competencies</p>'+
+            '<p class="list">JS/HTML/CSS/NodeJS</p>'+
+            '<p class="list">I'm really good with Excel VBA</p>'+
+            '<p class="list">AngularJS/Java</p>'+
             '<p onclick="nextpage()" class="option indent">Next</p>',
-
-            '<p class="menutitle">Development Work</p>'+
-            '<p class="list">An Excel-VBA mod that converts drawings to svg.</p>'+
-            '<p class="list">A Palindromic Super-Permutation Generator in Kotlin And Elixir.</p>'+
-            '<p class="list">A GAAP Financial Compilation Mod In Excel VBA.</p>'+
-            '<p class="list">An Index-Fund Optimizer (to minimize variances for given expected returns) Mod In Excel VBA.</p>'+
-            '<p class="list">Currently developing an augmented-reality game in NodeJS. The following are related.</p>'+
-            '<p class="list">A janky 3d-rendering engine that only uses multiplication 2 times per sprite-item per frame, with no division, sin, cos, or tan.</p>'+
-            '<p class="list">A simple player-detection system for the camera.</p>'+
-            '<p class="list">A 20-piece soundtrack.</p>'+
+            
+            '<p class="menutitle">Professional Projects (part of team)</p>'+
+            '<p class="list">Care Right Tech: debugging Java-backend and AngularJS-frontend</p>'+
+            '<p class="list">Title II And XVI Entrypoint: set up much of the front-end, and API/backend (AWS)</p>'+
+            '<p class="list">Wrote Animations for Unchained Ag, an Educational App, and various smaller apps</p>',
+            
+            '<p class="menutitle">Side Projects</p>'+
+            '<p class="list">An Excel-VBA mod that generates webpages. (I use it to make SVG animations for my apps)</p>'+
+            '<p class="list">A custom, 3d-rendering engine in Javascript (Using it for a game)</p>'+
+            '<p class="list">An event-based nodeJS LAN/bluetooth server (Using it for a game)</p>'+
+            '<p class="list">A simple player-detection system for camera (Using it for a game)</p>'+
+            '<p class="list">A Palindromic Super-Permutation Generator in Kotlin.</p>'+
+            '<p class="list">A Financial-Accounting Mod In Excel VBA.</p>'+
             '<p onclick="nextpage()" class="option indent">Next</p>',
-
+            
             '<p class="menutitle">Education And Experience</p>'+
-            '<p class="list"><fade>Happy Jack Software:</fade> Web Dev</p>'+
-            '<p class="list"><fade>Electrichlor LLC:</fade> Accountant</p>'+
-            '<p class="list"><fade>University Of Wyoming:</fade> Accounting</p>'+
+            '<p class="list"><fade class="fade">Happy Jack Software:</fade> Front End</p>'+
+            '<p class="list"><fade class="fade">Electrichlor LLC:</fade> Accountant</p>'+
+            '<p class="list"><fade class="fade">University Of Wyoming:</fade> Accounting</p>'+
             '<p class="list">Independent Illustrator and Animator</p>'+
             '<p onclick="nextpage()" class="option indent">Next</p>',
 
             '<p class="menutitle">Contact Information</p>'+
-            '<p class="list"><fade>Phone:</fade> (307) 343-3247</p>'+
-            '<p class="list"><fade>Email:</fade> mgunder747@gmail.com or enkidu275@gmail.com</p>'+
+            '<p class="list"><fade class="fade">Phone:</fade> (307) 343-3247</p>'+
+            '<p class="list"><fade class="fade">Email:</fade> mgunder747@gmail.com or enkidu275@gmail.com</p>'+
             '<p onclick="nextpage()" class="option indent">Back</p>'
         ];
         var currentpage=0;
