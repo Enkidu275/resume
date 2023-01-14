@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <body class="checkerboard">
     <div id="background">
-        <svg viewBox="40 35 215 480" class="hackerman">
+        <svg viewBox="40 35 215 480" class="hackerman">//I know, kind of cringe-y. Don't judge me.
             <path d="M101 218L108 218L108 159L184 159L184 218L189 218C194 204 205 189 205 174C205 160 194 145 189 131L174 122C179 116 189 113 189 105L171 95C167 101 167 109 160 113C151 118 141 118 131 113C127 109 126 101 124 96L102 104C102 113 112 116 117 122L102 131C97 145 87 160 86 175C87 189 96 203 101 218ZM189 97L171 89C155 79 139 81 124 89L101 98L121 52C137 42 153 43 169 52L189 97ZM114 164C178 164 178 164 178 164C178 218 178 218 178 218C114 218 114 218 114 218C114 164 114 164 114 164Z"/>
         </svg>
     </div>
     <div class="scroll">
         <div id="textcontent">
             <p class="menutitle">Michael Gunderson</p>
-            <p class="list">Front-End Developer</p>
+            <p class="list">Web/Utility Developer</p>
             <p class="list">Please use <fade class="fade">Google Chrome</fade> for a fuller-experience.</p>
             <p onclick="nextpage()" class="option indent">Next</p>
         </div>
@@ -105,39 +105,41 @@
         .salamanders > svg > use:nth-child(15) {x:142px;y:868px;}
     </style>
     <script>
+        const nextbutton='<p onclick="nextpage()" class="option indent">Next</p>';
         const pages=[
             '<p class="menutitle">Michael Gunderson</p>'+
-            '<p class="list">Front-End Developer</p>'+
+            '<p class="list">Web/Utility Developer</p>'+
             '<p class="list">Please use <fade>Google Chrome</fade> for a fuller-experience.</p>'+
-            '<p onclick="nextpage()" class="option indent">Next</p>',
+            nextbutton,
             
             '<p class="menutitle">Computer Skills</p>'+
             '<p class="list">JS/HTML/CSS/NodeJS</p>'+
             '<p class="list">Excel VBA</p>'+
             '<p class="list">AngularJS/Java</p>'+
-            '<p onclick="nextpage()" class="option indent">Next</p>',
+            nextbutton,
             
-            '<p class="menutitle">Professional Projects (part of team)</p>'+
-            '<p class="list">Care Right Tech: debugging Java-backend and AngularJS-frontend</p>'+
-            '<p class="list">Title II And XVI Entrypoint: set up much of the front-end, and API/backend (AWS)</p>'+
-            '<p class="list">Wrote Animations for Unchained Ag, an Educational App, and various smaller apps</p>'+
-            '<p onclick="nextpage()" class="option indent">Next</p>',
+            '<p class="menutitle">Professional Experience</p>'+
+            '<p class="list">Happy Jack Software: developed apps with Angular, AWS, Node.js, and Java Spring</p>'+
+            '<p class="list">Electrichlor LLC: wrote accounting mods in Excel VBA</p>'+
+            nextbutton,
+
+            '<p class="menutitle">References</p>'+
+            '<p class="list">Kim Shaw: current supervisor, (307) 399-2011, kshaw1@uwyo.edu</p>'+
+            '<p class="list">Mona Gamboa: previous employer, (307) 761-0903</p>'+
+            nextbutton,
             
-            '<p class="menutitle">Side Projects</p>'+
-            '<p class="list">An Excel-VBA mod that generates webpages. (I use it to make SVG animations for my apps)</p>'+
-            '<p class="list">A custom, 3d-rendering engine in Javascript (Using it for a game)</p>'+
-            '<p class="list">An event-based nodeJS LAN/bluetooth server (Using it for a game)</p>'+
-            '<p class="list">A simple player-detection system for camera (Using it for a game)</p>'+
+            '<p class="menutitle">Personal Projects</p>'+
+            '<p class="list">An Excel-VBA mod that generates webpages and vector-graphics.</p>'+
+            '<p class="list">(I used it for these cringe-y animations)</p>'+
             '<p class="list">A Palindromic Super-Permutation Generator in Kotlin.</p>'+
             '<p class="list">A Financial-Accounting Mod In Excel VBA.</p>'+
-            '<p onclick="nextpage()" class="option indent">Next</p>',
+            '<p class="list">Currently developing a web-based mobile game.</p>'+
+            nextbutton,
             
-            '<p class="menutitle">Education And Experience</p>'+
-            '<p class="list"><fade class="fade">Happy Jack Software:</fade> Front End</p>'+
+            '<p class="menutitle">Education</p>'+
             '<p class="list"><fade class="fade">Electrichlor LLC:</fade> Accountant</p>'+
             '<p class="list"><fade class="fade">University Of Wyoming:</fade> Accounting</p>'+
-            '<p class="list">Independent Illustrator and Animator</p>'+
-            '<p onclick="nextpage()" class="option indent">Next</p>',
+            nextbutton,
 
             '<p class="menutitle">Contact Information</p>'+
             '<p class="list"><fade class="fade">Phone:</fade> (307) 343-3247</p>'+
@@ -146,7 +148,7 @@
         ];
         var currentpage=0;
         var active=false;
-        function nextpage() {//for more complex, group-made apps, I find it's nice to put functions in JSON's. But for something simple like this, it isn't preferable.
+        function nextpage() {
             if(active==false) {
                 active=true;
                 currentpage=currentpage==pages.length-1?0:currentpage+1;//circle through index values.
